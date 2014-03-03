@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import os
 import cPickle
 import numpy as np
@@ -75,18 +77,18 @@ def pickle_results(filename=None, verbose=True):
             if (type(D) == dict and D.get('funcname') == f.__name__
                     and args_match and kwargs_match):
                 if verbose:
-                    print ("@pickle_results: using precomputed "
-                           "results from '%s'" % filename)
+                    print("@pickle_results: using precomputed "
+                          "results from '%s'" % filename)
                 retval = D['retval']
 
             else:
                 if verbose:
-                    print ("@pickle_results: computing results "
-                           "and saving to '%s'" % filename)
+                    print("@pickle_results: computing results "
+                          "and saving to '%s'" % filename)
                     if cache_exists:
-                        print "  warning: cache file '%s' exists" % filename
-                        print "    - args match:   %s" % args_match
-                        print "    - kwargs match: %s" % kwargs_match
+                        print("  warning: cache file '%s' exists" % filename)
+                        print("    - args match:   %s" % args_match)
+                        print("    - kwargs match: %s" % kwargs_match)
                 retval = f(*args, **kwargs)
                 cPickle.dump(dict(funcname=f.__name__, retval=retval,
                                   args=args, kwargs=kwargs),

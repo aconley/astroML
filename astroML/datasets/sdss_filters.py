@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import os
 import urllib2
 
@@ -50,7 +52,7 @@ def fetch_sdss_filter(fname, data_home=None, download_if_missing=True):
             raise IOError('data not present on disk. '
                           'set download_if_missing=True to download')
 
-        print "downloading from %s" % url
+        print("downloading from %s" % url)
         F = urllib2.urlopen(url)
         open(archive_file, 'w').write(F.read())
 
@@ -91,7 +93,7 @@ def fetch_vega_spectrum(data_home=None, download_if_missing=True):
             raise IOError('data not present on disk. '
                           'set download_if_missing=True to download')
 
-        print "downnloading from %s" % VEGA_URL
+        print("downnloading from %s" % VEGA_URL)
         F = urllib2.urlopen(VEGA_URL)
         open(archive_name, 'w').write(F.read())
 

@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import sys
 import urllib2
 from cStringIO import StringIO
@@ -40,7 +42,7 @@ def download_with_progress_bar(data_url, return_buffer=False):
     total_size = int(fhandle.info().getheader('Content-Length').strip())
     chunk_size = total_size / num_units
 
-    print "Downloading %s" % data_url
+    print("Downloading %s" % data_url)
     nchunks = 0
     buf = StringIO()
     total_size_str = bytes_to_string(total_size)

@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import numpy as np
 from numpy.testing import assert_allclose, run_module_suite
 
@@ -37,7 +39,7 @@ def test_bootstrap_results():
 
     mu, sigma = mean_sigma(distribution)
 
-    print mu, sigma
+    print(mu, sigma)
 
     assert_allclose([mu, sigma], [0.08139846, 0.10465327])
 
