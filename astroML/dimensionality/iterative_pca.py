@@ -1,9 +1,11 @@
 import sys
 
 import numpy as np
-import pylab as pl
+import matplotlib.pylab as pl
 
 from scipy.linalg import solve
+
+__all__ = ["iterative_pca"]
 
 
 def iterative_pca(X, M, n_ev=5, n_iter=15, norm=None, full_output=False):

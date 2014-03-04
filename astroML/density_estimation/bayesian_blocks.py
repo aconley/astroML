@@ -13,6 +13,8 @@ References
 import numpy as np
 # TODO: implement other fitness functions from appendix B of Scargle 2012
 
+__all__ = ["bayesian_blocks"]
+
 
 class FitnessFunc(object):
     """Base class for fitness functions
@@ -56,7 +58,12 @@ class FitnessFunc(object):
     # the method fitness().  This allows more efficient computation below.
     @property
     def args(self):
-        return self.fitness.func_code.co_varnames[1:]
+        try:
+            # Python 2.x
+            return self.fitness.func_code.co_varnames[1:]
+        except AttributeError:
+            # Python 3.x
+            return self.fitness.__code__.co_varnames[1:]
 
 
 class Events(FitnessFunc):

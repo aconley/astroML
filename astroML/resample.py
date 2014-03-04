@@ -153,6 +153,6 @@ def jackknife(data, user_statistic, kwargs=None,
         results = zip(stat_corrected, sigma_stat)
 
     if ndim == 1:
-        return results[0]
+        return list(results)[0]
     else:
-        return results
+        return list(results)

@@ -2,7 +2,7 @@ import os
 
 import numpy as np
 
-from . import get_data_home
+from .tools import get_data_home
 from . import fetch_sdss_S82standards
 from .tools import download_with_progress_bar
 

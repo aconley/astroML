@@ -1,7 +1,6 @@
 import numpy as np
 from astroML.utils import combinations_with_replacement
 
-
 class LinearRegression(object):
     """Simple Linear Regression with errors in y
 

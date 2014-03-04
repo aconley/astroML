@@ -1,3 +1,6 @@
+__all__ = ["setup_text_plots"]
+
+
 def setup_text_plots(fontsize=8, usetex=True):
     """
     This function adjusts matplotlib settings so that all figures in the

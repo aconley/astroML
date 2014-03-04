@@ -1,11 +1,16 @@
 import os
-from cStringIO import StringIO
 import tarfile
+
+try:
+    # Python 2.x
+    from cStringIO import StringIO
+except ImportError:
+    from io import StringIO
 
 import numpy as np
 
-from . import get_data_home
-from tools import download_with_progress_bar
+from .tools import get_data_home
+from .tools import download_with_progress_bar
 
 TARGETLIST_URL = ("http://www.astro.washington.edu/users/ivezic/"
                   "linear/allDataFinal/allLINEARfinal_targets.dat")

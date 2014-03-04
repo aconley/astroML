@@ -17,6 +17,8 @@ from scipy import linalg
 from sklearn.mixture import GMM
 from astroML.utils import logsumexp, log_multivariate_gaussian
 
+__all__ = ["XDGMM"]
+
 
 class XDGMM(object):
     """Extreme Deconvolution

@@ -7,6 +7,8 @@ from astroML.density_estimation import\
     scotts_bin_width, freedman_bin_width,\
     knuth_bin_width, bayesian_blocks
 
+__all__ = ["hist"]
+
 
 def hist(x, bins=10, range=None, *args, **kwargs):
     """Enhanced histogram

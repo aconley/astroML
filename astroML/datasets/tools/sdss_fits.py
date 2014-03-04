@@ -5,12 +5,13 @@ More information can be found at
 http://www.sdss.org/dr7/products/spectra/index.html
 """
 import gc  # garbage collection
-import pylab as pl
 import numpy as np
 from scipy.ndimage.filters import gaussian_filter1d, uniform_filter1d
 from scipy import interpolate
 
-from . import download_with_progress_bar
+from .download import download_with_progress_bar
+
+__all__ = ["sdss_fits_url", "sdss_fits_filename", "SDSSfits"]
 
 # This is the URL of the sdss fits spectra
 FITS_FILENAME = 'spSpec-%(mjd)05i-%(plate)04i-%(fiber)03i.fit'

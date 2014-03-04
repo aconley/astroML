@@ -1,12 +1,18 @@
 from __future__ import print_function
 
 import os
-from tools import download_with_progress_bar
-from cStringIO import StringIO
+from .tools import download_with_progress_bar
 from gzip import GzipFile
 
 import numpy as np
-from . import get_data_home
+from .tools import get_data_home
+
+try:
+    from io import StringIO
+except ImportError:
+    from cStringIO import StringIO
+
+__all__ = ["fetch_moving_objects"]
 
 DATA_URL = 'http://www.astro.washington.edu/users/ivezic/sdssmoc/ADR3.dat.gz'
 

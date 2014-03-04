@@ -4,6 +4,8 @@ Statistics for astronomy
 import numpy as np
 from scipy.stats.distributions import rv_continuous
 
+__all__ = ["bivariate_normal", "trunc_exp", "linear"]
+
 
 def bivariate_normal(mu=[0, 0], sigma_1=1, sigma_2=1, alpha=0,
                      size=None, return_cov=False):

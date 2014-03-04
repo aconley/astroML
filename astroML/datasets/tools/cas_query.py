@@ -1,6 +1,8 @@
 import numpy as np
 
-from . import sql_query
+from .sql_query import *
+
+__all__ = ["query_plate_mjd_fiber"]
 
 # SDSS primtarget codes
 TARGET_QSO_HIZ            = int('0x00000001', 16)

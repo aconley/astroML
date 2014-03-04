@@ -9,6 +9,10 @@ except ImportError:
                   "to use an optimized version")
     from astroML.time_series._periodogram import lomb_scargle
 
+__all__ = ["lomb_scargle", "lomb_scargle_bootstrap",
+           "lomb_scargle_AIC", "lomb_scargle_BIC", "multiterm_periodogram",
+           "search_frequencies", "MultiTermFit"]
+
 
 def lomb_scargle_bootstrap(t, y, dy, omega,
                            generalized=True, subtract_mean=True,

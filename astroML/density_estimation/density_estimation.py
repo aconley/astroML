@@ -13,6 +13,8 @@ from scipy import special
 from sklearn.metrics import pairwise_kernels, pairwise_distances
 from sklearn.neighbors import BallTree
 
+__all__ = ["KDE", "KNeighborsDensity"]
+
 # TODO:
 #       - KDE with errors (chp 6.1.2)
 

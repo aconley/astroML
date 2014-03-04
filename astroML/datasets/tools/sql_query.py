@@ -7,6 +7,8 @@ import urllib
 PUBLIC_URL = 'http://cas.sdss.org/public/en/tools/search/x_sql.asp'
 DEFAULT_FMT = 'csv'
 
+__all__ = ["sql_query"]
+
 
 def remove_sql_comments(sql):
     """Strip SQL comments starting with --"""

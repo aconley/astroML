@@ -8,6 +8,8 @@ import numpy as np
 from sklearn.mixture import GMM
 from sklearn.naive_bayes import BaseNB
 
+__all__ = ["GMMBayes"]
+
 
 class GMMBayes(BaseNB):
     """GMM Bayes Classifier

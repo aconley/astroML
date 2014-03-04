@@ -1,6 +1,8 @@
 import numpy as np
 from ..utils import check_random_state
 
+__all__ = ["generate_power_law", "generate_damped_RW"]
+
 
 def generate_power_law(N, dt, beta, generate_complex=False, random_state=None):
     """Generate a power-law light curve

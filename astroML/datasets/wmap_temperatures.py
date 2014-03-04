@@ -3,10 +3,10 @@ import numpy as np
 
 # because of a bug in healpy, pylab must be imported before healpy is
 # or else a segmentation fault can result.
-import pylab as pl
+from matplotlib import pylab as pl
 
-from . import get_data_home
-from tools import download_with_progress_bar
+from .tools import get_data_home
+from .tools import download_with_progress_bar
 
 DATA_URL = ('http://lambda.gsfc.nasa.gov/data/map/dr4/'
             'skymaps/7yr/raw/wmap_band_imap_r9_7yr_W_v4.fits')

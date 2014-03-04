@@ -1,6 +1,8 @@
 import numpy as np
 from scipy import optimize
 
+__all__ = ["TLS_logL"]
+
 
 def TLS_logL(v, X, dX):
     """Compute the total least squares log-likelihood

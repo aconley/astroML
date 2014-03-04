@@ -2,6 +2,7 @@ import numpy as np
 from .linear_regression import gaussian_basis
 from sklearn.metrics import pairwise_kernels
 
+__all__ = ["NadarayaWatson"]
 
 class NadarayaWatson(object):
     """Nadaraya-Watson Kernel Regression

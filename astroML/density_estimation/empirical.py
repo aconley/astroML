@@ -2,6 +2,8 @@ import numpy as np
 from scipy import interpolate
 from ..utils import check_random_state
 
+__all__ = ["FunctionDistribution", "EmpiricalDistribution"]
+
 
 class FunctionDistribution(object):
     """Generate random variables distributed according to an arbitrary function

@@ -14,6 +14,8 @@ except:
     raise ValueError("scipy v0.11 or greater required "
                      "for minimum spanning tree")
 
+__all__ = ["HierarchicalClustering", "get_graph_segments"]
+
 
 class HierarchicalClustering(object):
     """Hierarchical Clustering via Approximate Euclidean Minimum Spanning Tree

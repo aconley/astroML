@@ -1,8 +1,18 @@
 from __future__ import print_function
 
 import os
-import cPickle
 import numpy as np
+
+try:
+    # Python 2.x
+    import cPickle
+    readmode = 'r'
+    writemode = 'w'
+except ImportError:
+    # Python 3.x
+    import pickle as cPickle
+    readmode = 'rb'
+    writemode = 'wb'
 
 
 def pickle_results(filename=None, verbose=True):
@@ -49,7 +59,7 @@ def pickle_results(filename=None, verbose=True):
 
         def new_f(*args, **kwargs):
             try:
-                D = cPickle.load(open(filename, 'r'))
+                D = cPickle.load(open(filename, readmode))
                 cache_exists = True
             except:
                 D = {}
@@ -92,7 +102,7 @@ def pickle_results(filename=None, verbose=True):
                 retval = f(*args, **kwargs)
                 cPickle.dump(dict(funcname=f.__name__, retval=retval,
                                   args=args, kwargs=kwargs),
-                             open(filename, 'w'))
+                             open(filename, writemode))
             return retval
         return new_f
     return pickle_func

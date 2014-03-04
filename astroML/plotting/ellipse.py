@@ -1,5 +1,7 @@
 from matplotlib import pyplot as plt
 
+__all__ = ["plot_tissot_ellipse"]
+
 
 def plot_tissot_ellipse(longitude, latitude, radius, ax=None, **kwargs):
     """Plot Tissot Ellipse/Tissot Indicatrix

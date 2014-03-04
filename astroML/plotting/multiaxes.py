@@ -6,6 +6,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import rcParams
 
+__all__ = ["MultiAxes"]
+
 
 class MultiAxes(object):
     """Visualize Multiple-dimensional data

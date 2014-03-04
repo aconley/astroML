@@ -4,9 +4,9 @@ Astronomy Datasets
 """
 
 from .tools import get_data_home
-from .sdss_S82standards import fetch_sdss_S82standards
-from .dr7_quasar import fetch_dr7_quasar
-from .moving_objects import fetch_moving_objects
+from .sdss_S82standards import *
+from .dr7_quasar import *
+from .moving_objects import *
 from .sdss_galaxy_colors import fetch_sdss_galaxy_colors
 from .sdss_spectrum import fetch_sdss_spectrum
 from .sdss_corrected_spectra import fetch_sdss_corrected_spectra

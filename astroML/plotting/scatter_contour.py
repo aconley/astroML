@@ -1,6 +1,8 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
+__all__ = ["scatter_contour"]
+
 
 def scatter_contour(x, y,
                     levels=10,

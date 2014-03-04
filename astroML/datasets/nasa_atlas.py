@@ -9,12 +9,10 @@ This function fetches a ~50MB subset of that data.  This subset is created
 using the code that can be found at examples/datasets/truncate_nsa_data.py
 """
 import os
-import urllib2
-
 import numpy as np
 
-from tools import download_with_progress_bar
-from . import get_data_home
+from .tools import download_with_progress_bar
+from .tools import get_data_home
 
 
 DATA_URL = ('http://www.astro.washington.edu/users/ivezic/'

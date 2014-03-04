@@ -5,6 +5,8 @@ import numpy as np
 from scipy import fftpack
 from .periodogram import lomb_scargle
 
+__all__ = ["ACF_scargle", "ACF_EK"]
+
 
 def ACF_scargle(t, y, dy, n_omega=2 ** 10, omega_max=100):
     """Compute the Auto-correlation function via Scargle's method

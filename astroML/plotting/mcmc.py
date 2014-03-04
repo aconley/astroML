@@ -1,6 +1,8 @@
 from matplotlib import pyplot as plt
 import numpy as np
 
+__all__ = ["plot_mcmc"]
+
 
 def convert_to_stdev(logL):
     """

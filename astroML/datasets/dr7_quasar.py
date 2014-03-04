@@ -6,12 +6,18 @@ http://www.sdss.org/dr7/products/value added/qsocat_dr7.html
 """
 
 import os
-from tools import download_with_progress_bar
+from .tools import download_with_progress_bar
 from gzip import GzipFile
-from cStringIO import StringIO
+
+try:
+    from io import StringIO
+except ImportError:
+    from cStringIO import StringIO
 
 import numpy as np
-from . import get_data_home
+from .tools import get_data_home
+
+__all__ = ["fetch_dr7_quasar"]
 
 DATA_URL = 'http://das.sdss.org/va/qsocat/dr7qso.dat.gz'
 

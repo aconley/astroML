@@ -5,7 +5,13 @@ import numpy as np
 from numpy.testing import assert_
 from matplotlib import image
 import matplotlib.pyplot as plt
-from cStringIO import StringIO
+
+try:
+    # Python 2.x
+    from cStringIO import StringIO as ioObj
+except ImportError:
+    # Python 3.x
+    from io import BytesIO as ioObj
 
 from astroML.plotting.tools import devectorize_axes
 
@@ -19,9 +25,9 @@ def test_devectorize_axes():
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.scatter(x, y)
-    sio = StringIO()
+    sio = ioObj()
     fig.savefig(sio)
-    sio.reset()
+    sio.seek(0, 0)  # Go back to start
     im1 = image.imread(sio)
     plt.close()
 
@@ -30,9 +36,9 @@ def test_devectorize_axes():
     ax = fig.add_subplot(111)
     ax.scatter(x, y)
     devectorize_axes(ax, dpi=200)
-    sio = StringIO()
+    sio = ioObj()
     fig.savefig(sio)
-    sio.reset()
+    sio.seek(0, 0)
     im2 = image.imread(sio)
     plt.close()
 

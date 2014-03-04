@@ -6,6 +6,9 @@ from astroML.density_estimation import bayesian_blocks
 from scipy.special import gammaln
 from scipy import optimize
 
+__all__ = ["scotts_bin_width", "freedman_bin_width", "knuth_bin_width",
+           "histogram"]
+
 
 def scotts_bin_width(data, return_bins=False):
     r"""Return the optimal histogram bin width using Scott's rule:

@@ -1,6 +1,8 @@
 import numpy as np
 from scipy import stats
 
+__all__ = ["mean_sigma", "sigmaG", "median_sigmaG", "fit_bivariate_normal"]
+
 #from scipy.special import erfinv
 #sigmaG_factor = 1. / (2 * np.sqrt(2) * erfinv(0.5))
 sigmaG_factor = 0.74130110925280102

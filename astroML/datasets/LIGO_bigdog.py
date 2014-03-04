@@ -4,12 +4,17 @@ Fetch the LIGO BigDog time-domain dataset
 from __future__ import print_function
 
 import os
-from cStringIO import StringIO
 from gzip import GzipFile
 import numpy as np
 
-from . import get_data_home
-from tools import download_with_progress_bar
+try:
+    # Python 2.x
+    from cStringIO import StringIO
+except ImportError:
+    from io import StringIO
+
+from .tools import get_data_home
+from .tools import download_with_progress_bar
 
 DATA_URL_LARGE = ('http://www.astro.washington.edu/users/ivezic/'
                   'DMbook/LIGO/hoft.968653908-968655956.H1.dat.gz')

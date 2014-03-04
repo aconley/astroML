@@ -1,8 +1,18 @@
 from __future__ import print_function
 
 import sys
-import urllib2
-from cStringIO import StringIO
+
+try:
+    # Python 3.x
+    from urllib.request import urlopen
+    from io import StringIO
+except ImportError:
+    # Python 2.x
+    from urllib2 import urlopen
+    from cStringIO import StringIO
+
+    
+__all__ = ["download_with_progress_bar"]
 
 
 def bytes_to_string(nbytes):
@@ -38,7 +48,7 @@ def download_with_progress_bar(data_url, return_buffer=False):
     """
     num_units = 40
 
-    fhandle = urllib2.urlopen(data_url)
+    fhandle = urlopen(data_url)
     total_size = int(fhandle.info().getheader('Content-Length').strip())
     chunk_size = total_size / num_units
 

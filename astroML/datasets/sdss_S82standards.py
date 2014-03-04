@@ -1,12 +1,20 @@
 from __future__ import print_function
 
 import os
-from tools import download_with_progress_bar
+from .tools import *
 from gzip import GzipFile
-from cStringIO import StringIO
+
+try:
+    # Python 3.x
+    from io import StringIO
+except ImportError:
+    # Python 2.x
+    from cStringIO import StringIO
 
 import numpy as np
-from . import get_data_home
+from .tools import get_data_home
+
+__all__ = ["fetch_sdss_S82standards"]
 
 DATA_URL = ('http://www.astro.washington.edu/users/ivezic/'
             'sdss/catalogs/stripe82calibStars_v2.6.dat.gz')

@@ -1,5 +1,8 @@
 import numpy as np
 
+__all__ = ["binned_statistic", "binned_statistic_2d",
+           "binned_statistic_dd"]
+
 
 def binned_statistic(x, values, statistic='mean',
                      bins=10, range=None):
@@ -318,7 +321,7 @@ def binned_statistic_dd(sample, values, statistic='mean',
         result.fill(np.nan)
         flatcount = np.bincount(xy, None)
         flatsum = np.bincount(xy, values)
-        a = np.arange(len(flatcount))
+        a = np.arange(len(flatcount), dtype=np.int)
         result[a] = flatsum
         result[a] /= flatcount
     elif statistic == 'count':

@@ -1,6 +1,8 @@
 import numpy as np
 from sklearn.mixture import GMM
 
+__all__ = ["GaussianMixture1D"]
+
 
 class GaussianMixture1D(object):
     """
