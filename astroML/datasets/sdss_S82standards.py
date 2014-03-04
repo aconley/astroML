@@ -6,10 +6,10 @@ from gzip import GzipFile
 
 try:
     # Python 3.x
-    from io import StringIO
+    from io import BytesIO as ioObj
 except ImportError:
     # Python 2.x
-    from cStringIO import StringIO
+    from cStringIO import StringIO as ioObj
 
 import numpy as np
 from .tools import get_data_home
@@ -144,7 +144,7 @@ def fetch_sdss_S82standards(data_home=None, download_if_missing=True,
         zipped_buf = download_with_progress_bar(data_url, return_buffer=True)
         gzf = GzipFile(fileobj=zipped_buf, mode='rb')
         print("uncompressing file...")
-        extracted_buf = StringIO(gzf.read())
+        extracted_buf = ioObj(gzf.read())
         data = np.loadtxt(extracted_buf, **kwargs)
         np.save(archive_file, data)
 

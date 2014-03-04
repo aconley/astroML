@@ -8,9 +8,9 @@ import numpy as np
 from .tools import get_data_home
 
 try:
-    from io import StringIO
+    from cStringIO import StringIO as ioObj
 except ImportError:
-    from cStringIO import StringIO
+    from io import BytesIO as ioObj
 
 __all__ = ["fetch_moving_objects"]
 
@@ -135,7 +135,7 @@ def fetch_moving_objects(data_home=None, download_if_missing=True,
         zipped_buf = download_with_progress_bar(DATA_URL, return_buffer=True)
         gzf = GzipFile(fileobj=zipped_buf, mode='rb')
         print("uncompressing file...")
-        extracted_buf = StringIO(gzf.read())
+        extracted_buf = ioObj(gzf.read())
         data = np.loadtxt(extracted_buf, dtype=ADR4_dtype)
 
         # Select unique sources with known orbital elements

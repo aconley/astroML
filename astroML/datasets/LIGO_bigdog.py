@@ -9,9 +9,9 @@ import numpy as np
 
 try:
     # Python 2.x
-    from cStringIO import StringIO
+    from cStringIO import StringIO as ioObj
 except ImportError:
-    from io import StringIO
+    from io import BytesIO as ioObj
 
 from .tools import get_data_home
 from .tools import download_with_progress_bar
@@ -65,7 +65,7 @@ def fetch_LIGO_large(data_home=None, download_if_missing=True):
                                                 return_buffer=True)
         gzf = GzipFile(fileobj=zipped_buf, mode='rb')
         print("uncompressing file...")
-        extracted_buf = StringIO(gzf.read())
+        extracted_buf = ioObj(gzf.read())
         data = np.loadtxt(extracted_buf)
         np.save(local_file, data)
 

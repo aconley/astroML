@@ -10,9 +10,12 @@ from .tools import download_with_progress_bar
 from gzip import GzipFile
 
 try:
-    from io import StringIO
+    # Python 2.x
+    from cStringIO import StringIO as ioObj
 except ImportError:
-    from cStringIO import StringIO
+    # Python 3.x
+    from io import BytesIO as ioObj
+
 
 import numpy as np
 from .tools import get_data_home
@@ -110,7 +113,7 @@ def fetch_dr7_quasar(data_home=None, download_if_missing=True):
 
         zipped_buf = download_with_progress_bar(DATA_URL, return_buffer=True)
         gzf = GzipFile(fileobj=zipped_buf, mode='rb')
-        extracted_buf = StringIO(gzf.read())
+        extracted_buf = ioObj(gzf.read())
         data = np.loadtxt(extracted_buf,
                           skiprows=SKIP_ROWS,
                           usecols=COLUMN_NUMBERS,

@@ -3,9 +3,9 @@ import tarfile
 
 try:
     # Python 2.x
-    from cStringIO import StringIO
+    from cStringIO import StringIO as ioObj
 except ImportError:
-    from io import StringIO
+    from io import BytesIO as ioObj
 
 import numpy as np
 
@@ -62,7 +62,7 @@ class LINEARdata(object):
         self.targets.dtype.names = target_names
 
         self.dataF = tarfile.open(data_file)
-        self.ids = np.array(map(self._name_to_id, self.dataF.getnames()))
+        self.ids = np.array(list(map(self._name_to_id, self.dataF.getnames())))
 
         # rearrange targets so lists are in the same order
         self.targets = self.targets[self.targets['objectID'].argsort()]
@@ -203,7 +203,7 @@ def fetch_LINEAR_geneva(data_home=None, download_if_missing=True):
                           'set download_if_missing=True to download')
 
         databuffer = download_with_progress_bar(GENEVA_URL)
-        data = np.loadtxt(StringIO(databuffer), dtype=ARCHIVE_DTYPE)
+        data = np.loadtxt(ioObj(databuffer), dtype=ARCHIVE_DTYPE)
         np.save(archive_file, data)
     else:
         data = np.load(archive_file)

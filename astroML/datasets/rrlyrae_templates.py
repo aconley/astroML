@@ -3,11 +3,6 @@ import tarfile
 
 import numpy as np
 
-try:
-    from cStringIO import StringIO
-except ImportError:
-    from io import StringIO
-
 from .tools import get_data_home
 from .tools import download_with_progress_bar
 DATA_URL = ("http://www.astro.washington.edu/users/bsesar/"
@@ -31,9 +26,10 @@ def fetch_rrlyrae_templates(data_home=None, download_if_missing=True):
 
     Returns
     -------
-    data : numpy record array
-        record array containing the templates
+    data : dictionary
+        dictionary containing the templates
     """
+
     data_home = get_data_home(data_home)
     if not os.path.exists(data_home):
         os.makedirs(data_home)
