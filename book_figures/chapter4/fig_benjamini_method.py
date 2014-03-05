@@ -39,7 +39,7 @@ foreground = norm(150, 12)
 f = 0.1
 
 # Draw from the distribution
-N = 1E6
+N = int(1e6)
 X = np.random.random(N)
 mask = (X < 0.1)
 X[mask] = foreground.rvs(np.sum(mask))

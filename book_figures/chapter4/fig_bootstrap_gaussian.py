@@ -43,7 +43,7 @@ data = norm(0, 1).rvs(m)
 
 #------------------------------------------------------------
 # Compute bootstrap resamplings of data
-mu1_bootstrap = bootstrap(data, n,  np.std, kwargs=dict(axis=1, ddof=1))
+mu1_bootstrap = bootstrap(data, n, np.std, kwargs=dict(axis=1, ddof=1))
 mu2_bootstrap = bootstrap(data, n, sigmaG, kwargs=dict(axis=1))
 
 #------------------------------------------------------------

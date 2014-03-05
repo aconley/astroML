@@ -21,6 +21,9 @@ The functions are available in the ``scipy`` package:
 #   For more information, see http://astroML.github.com
 #   To report a bug or issue, use the following forum:
 #    https://groups.google.com/forum/#!forum/astroml-general
+
+from __future__ import print_function
+
 import numpy as np
 from scipy import stats
 from matplotlib import pyplot as plt
@@ -61,7 +64,7 @@ for i in range(2):
     ax = fig.add_subplot(2, 1, 1 + i)  # 2 x 1 subplot
 
     # compute some statistics
-    A2, sig, crit = stats.anderson(vals[i])
+    A2, crit, sig = stats.anderson(vals[i])
     D, pD = stats.kstest(vals[i], "norm")
     W, pW = stats.shapiro(vals[i])
 
@@ -72,16 +75,16 @@ for i in range(2):
     Z1 = 1.3 * abs(mu - median) / sigma * np.sqrt(N)
     Z2 = 1.1 * abs(sigma / sigmaG - 1) * np.sqrt(N)
 
-    print 70 * '_'
-    print "  Kolmogorov-Smirnov test: D = %.2g  p = %.2g" % (D, pD)
-    print "  Anderson-Darling test: A^2 = %.2g" % A2
-    print "    significance  | critical value "
-    print "    --------------|----------------"
+    print(70 * '_')
+    print("  Kolmogorov-Smirnov test: D = %.2g  p = %.2g" % (D, pD))
+    print("  Anderson-Darling test: A^2 = %.2g" % A2)
+    print("    significance    | critical value ")
+    print("    ----------------|----------------")
     for j in range(len(sig)):
-        print "    %.2f          | %.1f%%" % (sig[j], crit[j])
-    print "  Shapiro-Wilk test: W = %.2g p = %.2g" % (W, pW)
-    print "  Z_1 = %.1f" % Z1
-    print "  Z_2 = %.1f" % Z2
+        print("    %5.2f%%          | %.1f" % (sig[j], crit[j]))
+    print("  Shapiro-Wilk test: W = %.2g p = %.2g" % (W, pW))
+    print("  Z_1 = %.1f" % Z1)
+    print("  Z_2 = %.1f" % Z2)
 
     # plot a histogram
     ax.hist(vals[i], bins=50, normed=True, histtype='stepfilled', alpha=0.5)
