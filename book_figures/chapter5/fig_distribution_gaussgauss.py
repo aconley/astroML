@@ -18,6 +18,8 @@ median with widths equal to sample standard deviation and quartile-based
 #   For more information, see http://astroML.github.com
 #   To report a bug or issue, use the following forum:
 #    https://groups.google.com/forum/#!forum/astroml-general
+from __future__ import print_function
+
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.stats import norm, anderson
@@ -36,7 +38,7 @@ setup_text_plots(fontsize=8, usetex=True)
 
 # draw underlying points
 np.random.seed(0)
-Npts = 1E6
+Npts = int(1E6)
 x = np.random.normal(loc=0, scale=1, size=Npts)
 
 # add error for each point
@@ -45,7 +47,7 @@ x += np.random.normal(0, e)
 
 # compute anderson-darling test
 A2, sig, crit = anderson(x)
-print "anderson-darling A^2 = %.1f" % A2
+print("anderson-darling A^2 = %.1f" % A2)
 
 # compute point statistics
 mu_sample, sig_sample = mean_sigma(x, ddof=1)

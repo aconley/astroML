@@ -1,13 +1,12 @@
 """
 Tools for working with distributions
 """
+from __future__ import division
+
 import numpy as np
 from astroML.density_estimation import bayesian_blocks
 from scipy.special import gammaln
 from scipy import optimize
-
-__all__ = ["scotts_bin_width", "freedman_bin_width", "knuth_bin_width",
-           "histogram"]
 
 
 def scotts_bin_width(data, return_bins=False):
@@ -103,8 +102,8 @@ def freedman_bin_width(data, return_bins=False):
         raise ValueError("data should have more than three entries")
 
     dsorted = np.sort(data)
-    v25 = dsorted[n / 4 - 1]
-    v75 = dsorted[(3 * n) / 4 - 1]
+    v25 = dsorted[n // 4 - 1]
+    v75 = dsorted[(3 * n) // 4 - 1]
 
     dx = 2 * (v75 - v25) * 1. / (n ** (1. / 3))
 
